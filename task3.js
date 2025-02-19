@@ -15,7 +15,7 @@ function neighbourSmaller (input) {
 
   while ( i < arr.length - 1){
 
-    if (arr[i] > arr[i-1] && arr[i] > arr[i+1]) {
+    if (realArr[i] > realArr[i-1] && realArr[i] > realArr[i+1]) {
       result++
     }
 
