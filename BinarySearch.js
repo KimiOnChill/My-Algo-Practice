@@ -30,7 +30,7 @@ function binarySearch (input, target) {
 
   let steps = 1;
   let start = 0;
-  let pivot;
+  let pivot = 0;
   let end = input.length-1;
 
   function count (){
