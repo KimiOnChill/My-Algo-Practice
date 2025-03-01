@@ -64,3 +64,22 @@ function fillInput (start, step, end) {
 
 console.log(fillInput (1, 1, 100));
 console.log(binarySearch (fillInput (1, 1, 100), 57)); //7
+
+function pairElement(str) {
+  // create object for pair lookup
+  const pairs = {
+    A: "T",
+    T: "A",
+    C: "G",
+    G: "C"
+  };
+
+  // map character to array of character and matching pair
+  return str
+    .split("")
+    .map(x => [x, pairs[x]]);
+}
+
+// test here
+
+console.log(pairElement("GCG"));
