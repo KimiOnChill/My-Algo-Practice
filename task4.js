@@ -3,10 +3,10 @@
 // time on following up to 35 will be 
 // t[i]=t[i−1]+t[i−2]
 // Output time for each item
-// 5 => 12
-// 21 => 28656
-// 32 => 5702886
-// 33 => 9227464
+// 5 -> 12
+// 21 -> 28656
+// 32 -> 5702886
+// 33 -> 9227464
 
 function timeCount (i) {
   i = i[0]*1; //convert to number
