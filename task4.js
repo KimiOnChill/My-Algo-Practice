@@ -19,8 +19,8 @@ function timeCount (i) {
 
   while (counter <= i) {
     let calc = t[counter-1] + t[counter-2];
-    /*console.log(`calc => ${calc}`);
-    console.log(`counter => ${counter}`);*/
+    console.log(`calc => ${calc}`);
+    console.log(`counter => ${counter}`);
     t.push(calc);
     counter ++;
   }
@@ -28,7 +28,12 @@ function timeCount (i) {
   return t.reduce((acc, x) => acc + x, 0);
 }
 
+console.log(`On input '1' => ${timeCount (['1'])}`);
+console.log(`On input '2' => ${timeCount (['2'])}`);
+console.log(`On input '3' => ${timeCount (['3'])}`);
+console.log(`On input '4' => ${timeCount (['4'])}`);
 console.log(`On input '5' => ${timeCount (['5'])}`);
 console.log(`On input '21' => ${timeCount (['21'])}`);
+console.log(`On input '23' => ${timeCount (['23'])}`); //mb breaks here
 console.log(`On input '32' => ${timeCount (['32'])}`);
 console.log(`On input '33' => ${timeCount (['33'])}`);
