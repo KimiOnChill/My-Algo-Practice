@@ -6,8 +6,8 @@ function fName (input) {};
 
 
 //tests
-let data1 = '';
-let data2 = ``;
+const data1 = '';
+const data2 = ``;
 
 console.log(fName(data1)); 
 /*

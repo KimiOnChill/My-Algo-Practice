@@ -1,3 +1,4 @@
+//! DOESN`T WORK FOR NOW
 //initial conditions
 const graph = {
   start : {A : 6, B : 2},

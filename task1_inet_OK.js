@@ -17,16 +17,10 @@ function changeVowels (input) {
 
 
 //tests
-let data1 = 'Азбука Вкуса';
-let data2 = ``;
+const data1 = 'Азбука Вкуса';
 
 console.log(changeVowels(data1)); 
 /*
 Expected output:
 АзбУкА вкУсА
-*/
-console.log(changeVowels(data2)); 
-/*
-Expected output:
-
 */

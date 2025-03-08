@@ -1,3 +1,4 @@
+//! DOESN`T WORK FOR NOW
 /*
 function binarySearch (list, item) {
   let low = 0;
