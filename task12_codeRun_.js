@@ -28,7 +28,14 @@ const data2 = [ '5', '5 4 3 2 1', '3' ];
 const data3 = [ '6', '7 5 4 -2 -8 -4', '-3' ];
 
 
-
+console.log(`result is ${nearNumber(data1)}`); 
+/*
+Expected output: 5
+*/
+console.log(`result is ${nearNumber(data2)}`);
+/*
+Expected output: 3
+*/
 console.log(`result is ${nearNumber(data3)}`);
 /*
 Expected output: -2 or -4
