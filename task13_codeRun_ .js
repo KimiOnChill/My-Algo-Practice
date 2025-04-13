@@ -1,44 +1,50 @@
 /*
-!!Write down algo
 a) function to check polindrome
-  1) if all elements are the same output 0;
-  2) if str.length is odd and subarrays to the left
+  1) if str.length is odd and subarrays to the left
     and to the right of middle element are reversed copies
     output 0;
-  3) if str.length is even and subarrays from the first half
+  2) if str.length is even and subarrays from the first half
     and from the second half are reversed copies output 0;
 
 b) function to add first group of numbers 
   in reverse to the end of the str
+
+  I think it's OK, but closed test #4 is wrong
 */
 
-function isPolindrome (arr) {
-  let start = 0;
-  let end = arr.length-1;
-
-  while(start < end) {
-    if (arr[start] !== arr[end])return false;
-    
-    start++;
-    end--;
+function isNumPolindrome (arr) {  
+  const len = arr.length;
+  for (let i = 0; i < Math.floor(len / 2); i++) {
+    if (arr[i] !== arr[len - 1 - i]) return false;
   }
   return true;
 };
 
 function checkArray (arr1, arr2) {
-  if (!isPolindrome(arr1)) {
-    //add numbers 
+  let arrPart;
+  let i = 1;
+  let polCheck = isNumPolindrome(arr1);
+  
+  while (!polCheck){
+    arrPart = arr1.slice(i-1, i);
+    i === 1 ? arr1.splice(arr1.length, 0, ...arrPart): arr1.splice(arr1.length-(i-1), 0, ...arrPart);
+    arr2.push(...arrPart);
+    i++;
+    polCheck = isNumPolindrome(arr1);
   }
-  else{return arr1, arr2}
+  arr2.reverse();
+return [arr1, arr2];
 }
 
 function polindromNumbers (input) {
   const arr1 = input[1].split(" ").map((x)=> x*1);
+  const initialArr1Length = input[0]*1;
   let arr2 = [];
 
-  checkArray(arr1, arr2);
-  
-  return `${arr2.some((x) => arr1.includes(x)) ? `${arr1.length - arr2.length}\n${arr2.join(' ')}` : '0'}`;
+  let res1;
+  let res2;
+  [res1, res2] = checkArray(arr1,arr2)
+  return `${res2.some((x) => res1.includes(x)) ? `${res1.length - initialArr1Length}\n${res2.join(' ')}` : '0'}`;
 }
   
 // tests
