@@ -6,7 +6,7 @@
 
 function fName (input) {
   let dict = new Map();
-  for (let i = 1; 1 <= input.length - 2; i++){
+  for (let i = 1; i <= input.length - 2; i++){
     let str = input[i].split(" ");
     dict.set(str[0], str[1]);
   }
@@ -16,13 +16,8 @@ function fName (input) {
 
 //tests
 const data1 = [ '3', 'Hello Hi', 'Bye Goodbye', 'List Array', 'Goodbye' ];
-const data2 = `1
-beep Car
-Car`;
-const data3 = `2
-Ololo Ololo
-Numbers 1234567890
-Numbers`;
+const data2 = [ '1', 'beep Car', 'Car' ];
+const data3 = [ '2', 'Ololo Ololo', 'Numbers 1234567890', 'Numbers' ];
 
 console.log(fName(data1)); 
 /*
