@@ -7,15 +7,9 @@ function fName (input) {};
 
 //tests
 const data1 = '';
-const data2 = ``;
+const expectedOutput1 = ``;
 
-console.log(fName(data1)); 
-/*
-Expected output:
-
-*/
-console.log(fName(data2)); 
-/*
-Expected output:
-
-*/
+// check
+console.log(`Expected output: ${expectedOutput1}
+Result is : ${fName(data1)}
+`);

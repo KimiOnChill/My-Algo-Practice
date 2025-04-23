@@ -4,13 +4,25 @@
 3) output opposite to the last given word
 */
 
-function fName (input) {
+function findInDictionary (input) {
   let dict = new Map();
   for (let i = 1; i <= input.length - 2; i++){
     let str = input[i].split(" ");
     dict.set(str[0], str[1]);
   }
-  return dict;
+  const whatToFind = input[input.length - 1];
+  let res;
+
+  dict.forEach((value, key)=>{
+    if (value === whatToFind){
+      res = key;
+    }
+    else if (key === whatToFind){
+      res = value;
+    }
+  })
+
+  return res;
 };
 
 
@@ -19,17 +31,17 @@ const data1 = [ '3', 'Hello Hi', 'Bye Goodbye', 'List Array', 'Goodbye' ];
 const data2 = [ '1', 'beep Car', 'Car' ];
 const data3 = [ '2', 'Ololo Ololo', 'Numbers 1234567890', 'Numbers' ];
 
-console.log(fName(data1)); 
+console.log(findInDictionary(data1)); 
 /*
 Expected output:
 Bye
 */
-console.log(fName(data2)); 
+console.log(findInDictionary(data2)); 
 /*
 Expected output:
 beep
 */
-console.log(fName(data3)); 
+console.log(findInDictionary(data3)); 
 /*
 Expected output:
 1234567890

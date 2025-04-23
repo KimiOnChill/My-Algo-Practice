@@ -21,23 +21,26 @@ function uniqWordsCount (input) {
 
 //tests
 const data1 = ['AA aa Aa aA'];
+const expectedOutput1 = 4;
+
 const data2 = ['a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a'];
+const expectedOutput2 = 1;
+
 const data3 = [
   "She sells sea shells on the sea shore;",
   "The shells that she sells are sea shells I'm sure.",
   "So if she sells sea shells on the sea shore,",
   "I'm sure that the shells are sea shore shells."
 ];
+const expectedOutput3 = 19;
 
-console.log(uniqWordsCount(data1)); 
-/*
-Expected output: 4
-*/
-console.log(uniqWordsCount(data2)); 
-/*
-Expected output: 1
-*/
-console.log(uniqWordsCount(data3)); 
-/*
-Expected output: 19
-*/
+// check
+console.log(`Expected output: ${expectedOutput1}
+Result is : ${uniqWordsCount(data1)}
+`); 
+console.log(`Expected output: ${expectedOutput2}
+Result is : ${uniqWordsCount(data2)}
+`); 
+console.log(`Expected output: ${expectedOutput3}
+Result is : ${uniqWordsCount(data3)}
+`); 
