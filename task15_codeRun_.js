@@ -1,24 +1,32 @@
-/*
-!!Write down algo
-make '-2000000000' as stop marker
-*/
+function whatSequence(input) {
+  let differenceArr = [];
 
-function whatSequence (input) {
-  let diferenceArr = [];
-  let diference;
-
-  for(let i = 1; i <= input.length-2; i++){
-    diference = Number(input[i]) - Number(input[i-1]);
-    diferenceArr.push(diference)
-    
+  for (let i = 1; i < input.length; i++) {
+    if (Number(input[i]) === -2000000000) break;
+    differenceArr.push(Number(input[i]) - Number(input[i-1]));
   }
 
-  if(diferenceArr.every((x) => x === 0)){
-    return `CONSTANT`;
+  if (differenceArr.length === 0) return 'CONSTANT';  // Single element case
+  
+  if (differenceArr.every(x => x === 0)) {
+    return 'CONSTANT';
   }
-  else if(diferenceArr.every((x) => x > 0)){}
-};
-
+  else if (differenceArr.every(x => x >= 0)) {
+    if (differenceArr.every(x => x === differenceArr[0] && x > 0)) {
+      return 'ASCENDING';
+    }
+    return 'WEAKLY ASCENDING';
+  }
+  else if (differenceArr.every(x => x <= 0)) {
+    if (differenceArr.every(x => x === differenceArr[0] && x < 0)) {
+      return 'DESCENDING';
+    }
+    return 'WEAKLY DESCENDING';
+  }
+  else {
+    return 'RANDOM';
+  }
+}
 
 //tests
 const data1 = [ '-530', '-530', '-530', '-2000000000'];
@@ -27,7 +35,7 @@ const expectedOutput1 = `CONSTANT`;
 const data2 = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '-2000000000'];
 const expectedOutput2 = `ASCENDING`;
 
-const data3 = [ '-5', '13', '15', '20', '30', '31', '-2000000000'];
+const data3 = [ '-5', '13', '15', '-2000000000', '20', '30', '31'];
 const expectedOutput3 = `WEAKLY ASCENDING`;
 
 const data4 = [ '7', '6', '5', '4', '3', '2', '1', '-2000000000'];
