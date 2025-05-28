@@ -2,7 +2,7 @@
 !!Write down algo
 */
 
-function fName (input) {
+function upToFour (input) {
   const twoAmt = Number(input[0]);
   const threeAmt = Number(input[1]);
   const fourAmt = Number(input[2]);
@@ -28,5 +28,5 @@ const expectedOutput1 = `2`;
 
 // check
 console.log(`Expected output: ${expectedOutput1}
-Result is : ${fName(data1)}
+Result is : ${upToFour(data1)}
 `);
