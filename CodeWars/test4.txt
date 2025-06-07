@@ -1,0 +1,129 @@
+UFO Ride - CW
+
+const alphbetObject = {};
+for (let i = 0; i < 26; i++) {
+  const letter = String.fromCharCode(97 + i);// 'a' is char code 97, 'A' is char code 65
+  alphbetObject [letter] = i+1;
+}
+
+const objLetters = {'A':1,'B':2,'C':3,'D':4,'E':5,'F':6,'G':7,'H':8,'I':9,'J':10,'K':11,'L':12,'M':13,'N':14,'O':15,'P':16,'Q':17,'R':18,'S':19,'T':20,'U':21,'V':22,'W':23,'X':24,'Y':25,'Z':26,};
+
+const cometNumsMultiplied = cometName.split("").reduce((x, acc) => x * acc, 1);
+const groupNumsMultiplied = groupName.split("").reduce((x, acc) => x * acc, 1);
+
+if (cometNumsMultiplied % 47 == groupNumsMultiplied % 47) {return 'GO'};
+else {return 'Stay'};
+
+---------------------------------------------------------------------------------------------------
+
+HTML Editor - CW
+
+const regex = /\w/b/i;
+const word = input.match(regex);
+return `</${word}>`
+
+---------------------------------------------------------------------------------------------------
+
+Total sentence's score - CW
+
+const scoreObject = {};
+for (let i = 0; i < 26; i++) {
+  const letter = String.fromCharCode(97 + i);// 'a' is char code 97, 'A' is char code 65
+  scoreObject[letter] = i+1;
+}
+for (let i = 0; i < 26; i++) {
+  const letter = String.fromCharCode(65 + i);
+  scoreObject[letter] = (i+1)*2;
+}
+for (let i = 0; i < 10; i++) {
+  const num = i;
+  scoreObject[num] = i;
+}
+
+const arr = sentence.split("");
+let result = 0;
+arr.forEach((x) => {
+  if (Object.hasOwn(scoreObject, x) result += scoreObject[x])
+})
+
+---------------------------------------------------------------------------------------------------
+
+Fun #202 - CW
+
+let n,m;
+
+for (let i = l; i <= d, i++) {
+  let digits = i.split("");
+  let digitSum = digits.reduce((x, acc) => x + acc, 0);
+  if (digitSum == x) return n = i;
+}
+
+for (let i = d; i >= l, i--) {
+  let digits = i.split("");
+  let digitSum = digits.reduce((x, acc) => x + acc, 0);
+  if (digitSum == x) return m = i;
+}
+
+---------------------------------------------------------------------------------------------------
+
+Magic sum of 3s - CW
+
+let result = 0;
+input.forEach((x) => {
+  if ( ToString(x).includes("3") && x % 2 !=0) result +=3;
+})
+
+---------------------------------------------------------------------------------------------------
+
+Min % of visitors that ate all food - CW
+
+return arr.reduce((x, acc) => x + acc, 0) - (arr.length-1)*100;
+
+---------------------------------------------------------------------------------------------------
+
+Powers of 3 - CW
+
+const whatIsClose = Math.floor( Math.log(n) / Math.log(3) );
+return whatIsClose +-1;
+
+---------------------------------------------------------------------------------------------------
+
+Simple Fun #22: is Smooth - CW
+
+const len = arr.length;
+let middle;
+if (len % 2 == 0) {
+  middle = arr[len/2 -1] + arr[len];
+}
+else { 
+  middle = Math.floor(arr[len/2]);
+}
+
+return arr[0] == arr[len-1] && arr[0] == middle ? true: false;
+
+---------------------------------------------------------------------------------------------------
+
+Connect 4 - CW
+
+let grid = [];
+for (let i = 0; i<=5; i++){
+  grid[i] = [];
+  for (let j = 0; j<=6; j++){
+    grid[i][j] = '-';
+  }
+}
+
+let turn = 1;
+
+function tokenHandle (num) {
+  for (let i = 5; i>=0; i--){
+  if(grid[i][num] == '-') {
+      return ?
+      grid[i][num] = turn % 2 == 0 ? 'R' : 'Y';
+      turn++;
+    }
+  }
+}
+
+input.forEach((num) => tokenHandle(num));
+return grid;
