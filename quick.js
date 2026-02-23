@@ -1,37 +1,30 @@
-const array = [8, 2, 4, 7, 1, 3, 9, 6, 5];
+//until j has not reached pivot
+//if j < pivot -> move i to next index, swap values at i and j
+//if j >= pivot -> ignore and move j to the next index
+//when j reaches pivot: move i to next index, this will be the place where pivot should be
+//swap values at i and pivot, now on the left are values less then pivot, on the right great 
+//than send two subarrays into quickSort until there is an array of one element
 
-function quickSort(arr) {
-  if (arr.length == 1) return arr;
+// this is code from freeCodeCamp
+const array = [1, 2, 4, 7, 1, 3, 9, 6, 5, 11];
+const quickSort = (arr) => {
+  if (arr.length <= 1) {
+    return arr;
+  }
 
-  let pivot = {value: arr[arr.length - 1], index: arr.length - 1};
-  let i = -1;
-  let j = {value: arr[0], index: 0}
-  
-  while (j.index < arr.length - 1){//until j has not reached pivot
-    j.value = arr[j.index];
-    if (j.value < pivot.value) {//if j < pivot -> move i to next index, swap values at i and j
-      i++;
-      arr.splice(j.index, 1, arr[i]);
-      arr.splice(i, 1, j.value);
-    }
-    else {//if j >= pivot -> ignore and move j to the next index
-      j.index++
+  let pivot = arr[0];
+  let leftArr = [];
+  let rightArr = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
     }
   }
 
-  i++;//when j reaches pivot: move i to next index, this will be the place where pivot should be
-  //swap values at i and pivot, now on the left are values less then pivot, on the right great 
-  arr.splice(pivot.index, 1, arr[i]);
-  arr.splice(i, 1, pivot.value);
-  pivot.index = i;
+  return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+};
 
-  //than send two subarrays into quickSort until there is an array of one element
-  let leftArr = array.slice(0, pivot.index);
-  let rigthArr = array.slice(pivot.index, arr.length-1);
-
-  let result = quickSort(leftArr).concat([pivot.value]);
-  result.concat(quickSort(rigthArr));
-  return result;
-}
-
-console.log(quickSort(array));
+console.log(quickSort(array))
