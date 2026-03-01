@@ -17,12 +17,27 @@ import java.util.*;
 //   },
 // };
 // 4, 3, 2, 1
+// ! done
 
-public class interviewTest_3 {
+public class interviewTest_3_OK {
 
-  // public static void printFlatList(String[] args) {
+  public void printReverseList() {
+    Node current = head;
+    ArrayList<Integer> result = new ArrayList<Integer>();
+    // ArrayList<Integer> resultRevers = new ArrayList<Integer>();
+    while (current != null) {
+      result.add(current.value);
+      current = current.next;
+    }
 
-  // }
+    for (int i = (result.size() - 1); i >= 0; i--){
+      System.out.print(result.get(i) + ", ");
+    }
+
+    System.out.println();
+  }
+
+  Node head;
   
   static class Node {
     int value;
@@ -33,10 +48,9 @@ public class interviewTest_3 {
       this.next = null;
     }
   }
-
+  
   public static void main(String[] args) {
-    // LinkedListExample list = new LinkedListExample();
-    LinkedList<Node> list = new LinkedList<Node>();
+    interviewTest_3_OK list = new interviewTest_3_OK();
     // Create nodes
     list.head = new Node(1);
     Node second = new Node(2);
@@ -48,6 +62,8 @@ public class interviewTest_3 {
     second.next = third;
     third.next = fourth;
     fourth.next = null;
+
+    list.printReverseList();
     // System.out.println(printFlatList(arr));
   }
 }
