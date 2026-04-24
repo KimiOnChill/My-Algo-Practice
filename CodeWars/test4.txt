@@ -1,30 +1,4 @@
-UFO Ride - CW
-
-const alphbetObject = {};
-for (let i = 0; i < 26; i++) {
-  const letter = String.fromCharCode(97 + i);// 'a' is char code 97, 'A' is char code 65
-  alphbetObject [letter] = i+1;
-}
-
-const objLetters = {'A':1,'B':2,'C':3,'D':4,'E':5,'F':6,'G':7,'H':8,'I':9,'J':10,'K':11,'L':12,'M':13,'N':14,'O':15,'P':16,'Q':17,'R':18,'S':19,'T':20,'U':21,'V':22,'W':23,'X':24,'Y':25,'Z':26,};
-
-const cometNumsMultiplied = cometName.split("").reduce((x, acc) => x * acc, 1);
-const groupNumsMultiplied = groupName.split("").reduce((x, acc) => x * acc, 1);
-
-if (cometNumsMultiplied % 47 == groupNumsMultiplied % 47) {return 'GO'};
-else {return 'Stay'};
-
----------------------------------------------------------------------------------------------------
-
-HTML Editor - CW
-
-const regex = /\w/b/i;
-const word = input.match(regex);
-return `</${word}>`
-
----------------------------------------------------------------------------------------------------
-
-Total sentence's score - CW
+Total sentence's score - CW_DONE
 
 const scoreObject = {};
 for (let i = 0; i < 26; i++) {
@@ -43,41 +17,55 @@ for (let i = 0; i < 10; i++) {
 const arr = sentence.split("");
 let result = 0;
 arr.forEach((x) => {
-  if (Object.hasOwn(scoreObject, x) result += scoreObject[x])
+  if (Object.hasOwn(scoreObject, x)) result += scoreObject[x];
 })
 
+return result;
+
 ---------------------------------------------------------------------------------------------------
 
-Fun #202 - CW
+Fun #202 - CW_DONE
 
-let n,m;
+function minAndMax(l, d, x) {
+  let result = [];
+  let n;
+  let m;
 
-for (let i = l; i <= d, i++) {
-  let digits = i.split("");
-  let digitSum = digits.reduce((x, acc) => x + acc, 0);
-  if (digitSum == x) return n = i;
+  for (let i = l; i <= d; i++) {
+    let digits = i.toString().split("");
+    let digitSum = digits.reduce((acc, x) => acc + Number(x), 0);
+    
+    if (digitSum == x) {
+      n = Number(i);
+      break;
+    };
+  }
+  result.push(n);
+
+  for (let i = d; i >= l; i--) {
+    let digits = i.toString().split("");
+    let digitSum = digits.reduce((acc, x) => acc + Number(x), 0);
+    if (digitSum == x) {
+      m = Number(i);
+      break;
+    };
+  }
+  result.push(m);
+
+  return result;
 }
 
-for (let i = d; i >= l, i--) {
-  let digits = i.split("");
-  let digitSum = digits.reduce((x, acc) => x + acc, 0);
-  if (digitSum == x) return m = i;
+---------------------------------------------------------------------------------------------------
+
+Magic sum of 3s - CW_DONE
+
+function magicSum(numbers) {
+  let result = 0;
+  numbers.forEach((x) => {
+    if ( x.toString().includes("3") && x % 2 != 0) result += x;
+  });
+  return result;
 }
-
----------------------------------------------------------------------------------------------------
-
-Magic sum of 3s - CW
-
-let result = 0;
-input.forEach((x) => {
-  if ( ToString(x).includes("3") && x % 2 !=0) result +=3;
-})
-
----------------------------------------------------------------------------------------------------
-
-Min % of visitors that ate all food - CW
-
-return arr.reduce((x, acc) => x + acc, 0) - (arr.length-1)*100;
 
 ---------------------------------------------------------------------------------------------------
 
