@@ -32,7 +32,8 @@ public class quickSort {
   }
 
   public static void main (String[] args) {
-    int[] arr = {1, 2, 4, 7, 1, 3, 9, 6, 5, 11};
+    // int[] arr = {1, 2, 4, 7, 1, 3, 9, 6, 5, 11};
+    int[] arr = {4,3,2,1};
     System.out.println(Arrays.toString(qiuckSortFunction(arr)));
   }
 }
