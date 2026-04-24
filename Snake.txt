@@ -1,0 +1,40 @@
+Snake
+Поле всегда имеет размеры 13 (высота) на 21 (ширина)
+Змейка всегда начинается с размера в 3 ячейки поля
+Змейка всегда начинается с координат (0,0) (0,1) (0,2), где (0,2) - это голова змейки
+
+ --------               --------
+ --oooY--       ===>    --oooo--
+ --------               --------
+
+const field = [
+  "ooo------Y--AND------",
+  "-----EXY--A--N---D--E",
+  "-X-----Y--A-N---D----",
+  "------EXY----A---N---",
+  "--DE--X---------YA---",
+  "-----ND---EXY--AN--D-",
+  "----E-----X-Y----A--N",
+  "D-----E-XY---AN---D--",
+  "E--------------------",
+  "-------X---Y------A-N",
+  "----D-EX----------YA-",
+  "--N-DEX--Y-A--N-----D",
+  "E------X--Y----------",
+];
+
+const moves = `R 12 D 2 R 2 U 1 R 2`;
+
+solution(field, moves);
+
+Output example: [[1,18], 5];
+================================================================
+you can just control the snake's head and length. no need to draw snake frame by frame 
+
+let regex = /\s+/; 
+let arr = strToCheck.split(regex);
+arr.pop();
+console.log(arr);
+
+first function - to go through arr and call second, 
+second - to count letters from slice of field and replace then with dash

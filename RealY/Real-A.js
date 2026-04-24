@@ -1,6 +1,6 @@
 function getCompressedString(str) {
   let strToCheck = str.toLowerCase();
-  console.log(stringToCheck);
+  console.log(strToCheck);
 
   let regex = /[\s,?!.]+/; 
   let arr = strToCheck.split(regex);
