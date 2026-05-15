@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.TreeMap;
 
 // when i have map of chars i need to construct a string
-// go through map and add to string each char flat(value/2)
+// go through map and add to string each char Math.round(value/2)
 // track uneven values to find if there will be a single middle char
 
 public class I_palCount {
@@ -28,12 +28,25 @@ public class I_palCount {
       }
     }
 
-    System.out.print(letters);
+    StringBuilder str = new StringBuilder();
+    int only = 0;
+    for (char letter : letters.keySet()) {
+        if (Math.round(letters.get(letter)/2) >= 1) {
+            str.append(letter);
+        } else if (letters.get(letter) == 1 && Character.getNumericValue(letter) > only) {
+            only = (int) letter;
+        }
+    }
 
-
-    
-    // writer.write(line);
-
+    String firstPart = str.toString();
+    String secondPart = str.reverse().toString();
+    if (only > 0) {
+        String result = firstPart + (char) only + secondPart;
+        writer.write(result);
+    } else {
+        String result = firstPart + secondPart;
+        writer.write(result);
+    }
 
     reader.close();
     writer.close();

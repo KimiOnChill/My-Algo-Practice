@@ -12,7 +12,7 @@ import java.util.Set;
 //? set wil contain unsorted crosses
 //? how to track was there an intersection for each other intervals?
 
-public class C5_A {
+public class C5_1 {
       public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));

@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class C6_A {
+public class C6_1 {
 
   public static int[] qiuckSortFunction(int[] inputArr) {
 
