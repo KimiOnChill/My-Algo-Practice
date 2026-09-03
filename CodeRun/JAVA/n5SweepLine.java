@@ -25,9 +25,6 @@ public class n5SweepLine {
                 rightArr.add(inputArr.get(i));
             }
         }
-    
-        // int[] leftFurther = leftArr.stream().mapToInt(Integer::intValue).toArray();
-        // int[] rightFurther = rightArr.stream().mapToInt(Integer::intValue).toArray();
 
         ArrayList<ArrayList<Integer>> leftRes = qiuckSortFunction(leftArr); //leftFurther
         ArrayList<ArrayList<Integer>> rightRes = qiuckSortFunction(rightArr); //rightFurther
@@ -35,9 +32,6 @@ public class n5SweepLine {
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>(leftRes);
         result.add(inputArr.get(0));
         result.addAll(rightRes);
-        // System.arraycopy(leftRes, 0, result, 0, leftRes.size());
-        // System.arraycopy(inputArr, 0, result, leftRes.size(), 1);
-        // System.arraycopy(rightRes, 0, result, leftRes.size()+1, rightRes.size());
 
         return result;
     }
@@ -63,41 +57,39 @@ public class n5SweepLine {
             }
         }
 
-        System.out.println(bordersMap);
+        //System.out.println(bordersMap);
+
         ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
         for (Map.Entry<Integer, Integer> entry : bordersMap.entrySet()) {
             list.add(new ArrayList<Integer>(Arrays.asList(entry.getKey(), entry.getValue())));
         }
-        System.out.println(Arrays.toString(list.toArray()));
+
+        //System.out.println(Arrays.toString(list.toArray()));
 
         ArrayList<ArrayList<Integer>> sortedList = new ArrayList<ArrayList<Integer>>(qiuckSortFunction(list));
 
-        System.out.println(sortedList);
+        //System.out.println(sortedList);
 
         HashMap<Integer, Integer>  mapOfTime = new HashMap<>();
         int lastNum = sortedList.get(sortedList.size()-1).get(0);
         Integer current = 0;
         for (int i = sortedList.get(0).get(0); i <= lastNum; i++) {
-            if (sortedList.get(0).get(0) == i) {
+            while (!sortedList.isEmpty() && sortedList.get(0).get(0) == i) {
                 current += sortedList.get(0).get(1);
                 sortedList.remove(0);
             }
             mapOfTime.put(i, current);
         }
-        System.out.println("mapOfTime:");
-
-        System.out.println(mapOfTime);
+        
+        //System.out.println("mapOfTime:");
+ 
+        //System.out.println(mapOfTime);
 
         String[] lastLine = reader.readLine().trim().split(" ");
         for (int i = 0; i <= m-1; i++) {
             Integer num = Integer.parseInt(lastLine[i]);
             String answer = mapOfTime.get(num).toString();
             writer.write(answer + " ");
-        //     // if (i != m-1) {
-        //     //     writer.write(answer + " ");
-        //     // } else {
-        //     //     writer.write(answer);
-        //     // }
         }
 
         reader.close();
